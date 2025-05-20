@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> this is to show demo of short polling</h1>
+    <input type="text" id="input" placeholder="Enter something" />
+
+    <h1 id="responsedata"></h1>
+    <script>
+        async function dataToShow(){
+        try{
+            const inputValue = document.getElementById('input').value;
+            const data = await fetch('/getdata', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: inputValue })
+            });
+            const response = await data.json();
+            document.getElementById('responsedata').innerHTML = response.data;
+        }
+        catch(e){
+            console.log(e);
+        }}
+        setInterval(() => {
+            dataToShow()
+        }, 5000); // 5 seconds interval for polling
+    </script>
+</body>
+</html>
