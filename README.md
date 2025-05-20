@@ -63,3 +63,9 @@ Ensure that the server is running before accessing the web page.
 The polling interval is set to 5 seconds in the client-side script.
 License
 This project is licensed under the MIT License.
+
+
+this Repository is hosted in gh-pages 
+url:- https://saikiranreddy2000.github.io/shortPolling/. 
+as github don't host server. you may not be able to see message on the UI. 
+But if you open nework tab you can Api call for every 5 sec.
